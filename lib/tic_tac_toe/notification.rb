@@ -20,6 +20,17 @@ module TicTacToe
       puts 'You may choose to play against the CPU or against a friend'
     end
 
-    
+    def request_player_move(current_player)
+      puts "#{current_player.name}: Enter a number between 1 and 9 to place your symbol"
+    end
+
+    def draw_message
+      puts 'The game ended in a draw'
+    end
+
+    def win_message(current_player)
+      puts 'Congratulations #{current_player.name} you won!'
+    end
+
   end
 end

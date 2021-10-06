@@ -1,25 +1,46 @@
 module TicTacToe
-
   class Game
-    attr_reader :human_players
+    attr_reader :players, :board, :current_player, :other_player
 
-    def initialize
-      @human_players = number_of_players
-      @game = Game.new
+    def initialize(number_of_players, board = Board.new)
+      @number_of_players = number_of_players
+      @players = Notification.player_names(number_of_players)
+      @board = board
+      @current_player, @other_player = @players.shuffle
+      play_game_humans if number_of_players == 2
+      play_game_computers if number_of_players == 1
     end
 
-    def number_of_players
-      puts 'How many players are there?'
-      number = gets.chomp
-      return number if number == 1
-      return number if number == 2
+    def play_game
+      Notification.start_game_message
+      loop do
+        Notification.player_turn(@current_player)
+        board.display_board
 
-      puts 'Please press a key corresponding to either 1 or 2 players'
-      number_of_players
+      end
     end
+
+    private
+
+    def switch_players
+      @current_player, @other_player = @other_player, @current_player
+    end
+
+    def get_human_move(human_move = gets.chomp.to_i)
+      human_move_to_grid(human_move)
+    end
+
+    def human_move_to_grid(human_move)
+      integer_hashmap = {
+        "1": [0, 0], "2": [1, 0],
+        "3": [2, 0], "4": [0, 1],
+        "5": [1, 1], "6": [2, 1],
+        "7": [0, 2], "8": [1, 2],
+        "9": [2, 2]
+      }
+      integer_hashmap[human_move]
+    end
+
+
   end
 end
-
-# new_game = GameStarter.new
-# players = Notifcation.player_names(new_game.human_players)
-# TicTacToeGame.new(players).play_game
