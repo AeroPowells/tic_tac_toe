@@ -20,10 +20,10 @@ module TicTacToe
     context '#set_cell' do
       it 'sets the cell at the (x,y) coordinate' do
         cell = Cell.new(:value)
-        grid = [[cell, '', ''], ['', '', ''], ['', '', '']]
+        grid = [[cell, '', ''], ['', '', ''], ['', '', cell]]
         board = GameBoard.new(grid: grid)
-        board.set_cell(0, 0, 'X')
-        expect(board.get_cell(0, 0).value).to eq 'X'
+        board.set_cell(2, 2, 'X')
+        expect(board.get_cell(2, 2).value).to eq 'X'
       end
     end
   end

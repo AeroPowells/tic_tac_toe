@@ -3,12 +3,11 @@ module TicTacToe
   class GameStarter
     attr_reader :human_players
 
-    def initialize(number = nil)
+    def initialize
       solicit_number_of_players
-      @human_players = number_of_players(number)
-      TicTacToeGame.new(@human_players)
+      @human_players = number_of_players
     end
-    
+
     private
 
     def solicit_number_of_players
@@ -24,9 +23,7 @@ module TicTacToe
       rescue InputError
         solicit_number_of_players
         number_retry = gets.chomp.to_i
-        return number_of_players if [1,2].include?(number_retry)
-
-        raise InputError, 'Incorrect value entered for number of players'
+        return number_of_players if [1, 2].include?(number_retry)
       end
     end
   end

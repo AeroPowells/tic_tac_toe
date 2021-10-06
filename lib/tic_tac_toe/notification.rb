@@ -1,23 +1,22 @@
 module TicTacToe
   class Notification
-    def player_names(number_of_players)
+    def player_names(number_of_players, name = gets.chomp.to_s)
       players = []
+      request_player_name
       if number_of_players == 1
-        players.push(Player.new({ marker: 'X', name: 'CPU' }))
-        name = Notification.player_name
-        players.push(Player.new({ marker: 'O', name: name }))
+        players.push(Player.new({ marker: 'O', name: 'name' }), Player.new({ marker: 'X', name: 'CPU' }))
       else
-        player1 = Notification.player_name
-        players.push(Player.new({ marker: 'X', name: player1 }))
-        player2 = Notification.player_name(2)
-        players.push(Player.new({ marker: 'O', name: player2 }))
+        request_player_name(2)
+        player1 = gets.chomp.to_s
+        players.push(Player.new({ marker: 'O', name: name }), Player.new({ marker: 'X', name: player1 }))
       end
+      puts players[0].name
       players
+      
     end
 
     def start_game_message
-      puts 'Welcome to a game of Tic Tac Toe in the command line'
-      puts 'You may choose to play against the CPU or against a friend'
+      puts 'Welcome to a game of Tic Tac Toe in the command line. You may choose to play against the CPU or against a friend'
     end
 
     def request_player_move(current_player)
@@ -29,8 +28,18 @@ module TicTacToe
     end
 
     def win_message(current_player)
-      puts 'Congratulations #{current_player.name} you won!'
+      puts "Congratulations #{current_player.name} you won!"
     end
 
+    def request_player_name(number = 1)
+      puts "Please enter player #{number} name"
+    end
+
+    def play_again?
+      puts 'Do you wish to play again with the same players?'
+      return true if gets.chomp.to_s.include? 'y'
+
+      false
+    end
   end
 end
