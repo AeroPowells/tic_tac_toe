@@ -3,20 +3,20 @@ require_relative 'lib/tic_tac_toe/version.rb'
 Gem::Specification.new do |spec|
   spec.name          = 'tic_tac_toe'
   spec.version       = TicTacToe::VERSION
-  spec.authors       = ['DPowellS']
-  spec.email         = ['90698361+DPowellS@users.noreply.github.com']
+  spec.authors       = ['AeroPowells']
+  spec.email         = ['90698361+AeroPowells@users.noreply.github.com']
 
   spec.summary       = %q{Tic-Tac-Toe in command line}
   spec.description   = %q{Introduction to OOP through tic-tac-toe game development}
-  spec.homepage      = 'https://github.com/DPowellS'
+  spec.homepage      = 'https://github.com/AeroPowells'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
 
   spec.metadata['allowed_push_host'] = "http://mygemserver.com"
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = "https://github.com/DPowellS"
-  spec.metadata['changelog_uri'] = "https://github.com/DPowellS/tic_tac_toe/blob/main/README.md"
+  spec.metadata['source_code_uri'] = "https://github.com/AeroPowells"
+  spec.metadata['changelog_uri'] = "https://github.com/AeroPowells/tic_tac_toe/blob/main/README.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
